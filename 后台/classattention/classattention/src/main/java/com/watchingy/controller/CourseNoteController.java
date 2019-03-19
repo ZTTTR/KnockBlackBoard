@@ -47,4 +47,5 @@ public class CourseNoteController {
             return "error";
         }
     }
+    
 }

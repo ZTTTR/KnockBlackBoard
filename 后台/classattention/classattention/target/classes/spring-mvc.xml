@@ -14,6 +14,8 @@
 
     <bean id="userService" class="com.watchingy.service.UserService"/>
 
+    <bean id="classService" class="com.watchingy.service.ClassService"/>
+
     <bean id="studentQuestionService" class="com.watchingy.service.StudentQuestionService"/>
 
     <bean id="courseNoteService" class="com.watchingy.service.CourseNoteService"/>
