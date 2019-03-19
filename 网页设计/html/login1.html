@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login1.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div id="bicode_box">
+    <div id="topic">
+        <h1 class="topic_message">{{topic_message}}</h1>
+    </div>
+    <div id="bicode_box_bottom">
+        <div >
+            <img class="bicode" v-bind:src="icont"/>
+        </div>
+        <div>
+            <p class="prompt_message">{{prompt_message}}</p>
+        </div>
+    </div>
+</div>
+<script src="../js/vue.js"></script>
+<script src="../js/login1.js"></script>
+</body>
+</html>

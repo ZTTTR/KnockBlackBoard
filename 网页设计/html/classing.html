@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=100%; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<head>
+    <meta charset="UTF-8">
+    <title>上课中</title>
+    <link rel="stylesheet" href="../css/myTableStyle.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/swiper-3.2.7.min.css" />
+    <link rel="stylesheet" href="../css/classing.css">
+</head>
+<body>
+<header class="top">
+
+    <nav class="gongneng">
+        <a href="main.html"><img class="headerLogo" width="210px" height="53px" src="../images/headerlogo1.png"
+                                 alt="headerLogo"></a>
+        <ul style="margin-top: 0px">
+            <li style="margin-top: 0px"><a href="login.html" title="注册" target="_blank"><img style="width: 45px;height: 45px; border-radius: 50%" src="../images/classone/my_image.jpg"></a></li>
+            <li style="margin-top: 5px"><a href="MyClass.html" title="我的课堂">我的课堂</a></li>
+            <li style="margin-top: 5px"><a href="MyClass.html" title="提问">提问问题</a></li>
+        </ul>
+    </nav>
+</header>
+<div >
+    <div style="position:absolute;margin-left: 150px;margin-top:80px;width:200px;height:400px;">
+        <div id="control">
+            <div style="width: 256px; height: 256px; ">
+                <div id="output" style="width: 256px; height: 256px; visibility:visible;"></div>
+            </div>
+        </div>
+        <div>
+            <button onclick="addMessage()" class="startbutton" style="" ></button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="swiper-container swiper1">
+            <div class="swiper-wrapper" >
+                <div class="swiper-slide selected" style="">课堂名单</div>
+                <div class="swiper-slide" style="width:50%!important;">聊天窗口</div>
+            </div>
+        </div>
+        <!-- swiper2 -->
+        <div class="swiper-container swiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-no-swiping">
+                    <div  style="height: 400px;width: 600px;">
+                        <table id="login_information" style="height: 400px; overflow:scroll">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>学号</th>
+                                <th>时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>孔庆莱</td>
+                                <td>20152100193</td>
+                                <td>20：10</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>黄江南</td>
+                                <td>20152100168</td>
+                                <td>20：10</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>周锐良</td>
+                                <td>20152100055</td>
+                                <td>20：10</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--聊天窗口-->
+                <div class="swiper-slide  swiper-no-swiping" id="chatBox">
+                    <div style="font-size: 40px;text-align: center" >聊天窗口</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-right: 30px; float:right; clear: none;">
+        <!--<img style="width: 80px;height: 80px;" onclick="ShowAndHide()" src="../images/二维码按钮.png">-->
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script  src="../js/vue.js"></script>
+<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="../js/main.js" ></script>
+<script type="text/javascript" src="../js/swiper-3.4.0.jquery.min.js" ></script>
+</body>
+</html>

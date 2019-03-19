@@ -1,0 +1,81 @@
+body{
+    /*background:url("../images/login_background.jpg");*/
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+}
+img{
+    width: 140px;
+    height: 140px;
+}
+form{
+    width: 750px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topic{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold ;
+}
+.head_link{
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 1px;
+    width: 98%;
+    background: #dddddd;
+}
+.left-form{
+   float: left;
+    width: 300px;
+    height: 350px;
+    margin-top: 50px;
+}
+.left-form div{
+    width: 300px;
+    margin-bottom: 8px;
+}
+.left-form select{
+    width: 100px;
+}
+.select_inline{
+
+}
+.centern_link{
+    float: left;
+    height: 320px;
+    margin: 30px 60px 0px 60px;
+    width: 1px;
+    background: #DDDDDD;
+}
+.right_form{
+    float: left;
+    width: 300px;
+    margin-top: 50px;
+}
+.right_form div{
+    width: 300px;
+    margin-bottom: 10px;
+}
+.right_form img{
+    display: inline-block;
+}
+.set_head_image{
+    display: inline-block;
+    margin-bottom: 1px;
+    width: 110px;
+    height: 30px;
+}
+.person_button{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.person_button input{
+    margin-left: 40px;
+    margin-right: 50px;
+    width: 100px;
+    height: 30px;
+}

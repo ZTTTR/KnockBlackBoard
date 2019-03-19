@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/selectID.css">
+
+</head>
+<body>
+
+    <div id="select_identify">
+        <div>
+            <h1 class="select_message">{{select_message}}</h1>
+        </div>
+        <div>
+            <div class="nowrap">
+                <a href="myclass.html"><img class="select" v-bind:src="select_teacher"></a>
+            </div>
+           <div class="nowrap">
+               <a href="myclass.html"><img class="select" v-bind:src="select_student"></a>
+           </div>
+        </div>
+    </div>
+<script src="../js/vue.js"></script>
+<script src="../js/selectID.js"></script>
+</body>
+</html>

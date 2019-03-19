@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>单个课堂</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/global.css" type="text/css">
+    <link rel="stylesheet" href="../css/app.css" type="text/css">
+    <link rel="stylesheet" href="../css/classone.css" type="text/css">
+</head>
+<body>
+
+<div id="app">
+    <header class="headnav">
+        <a href="./myclass.html">
+            <!--<img class="headerLog" style="width:65px; height:45px; margin-left: 30px"src="../images/logo_blackboard.png"alt="headerLogo">-->
+            <img class="headerLog" style="width:150px; padding-top: 3px; height:50px; margin-left: 20px"src="../images/headerlogo1.png"alt="headerLogo">
+        </a>
+        <div class="top_right_nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle clear" data-toggle="dropdown"><img class="head" src="../images/classone/my_image.jpg" alt="..."></a> <!-- dropdown -->
+                <ul class="dropdown-menu animated fadeInRight w">
+                    <li class="wrapper-sm b-b m-b-sm bg-light m-t-n-xs">
+                        <div>
+                            <!--<p>{{userName}}</p>-->
+                            <p>周韬锐</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" v-on:click="openPerson"><span>个人资料</span></a>
+                    </li>
+                    <li>
+                        <a>我的课堂</a>
+                    </li>
+                    <li>
+                        <a>注销</a>
+                    </li>
+                </ul><!-- / dropdown -->
+            </li>
+
+        </div>
+
+    </header>
+    <div class="head_information">
+        <div class="class_head_image"><a href="#"><img v-bind:src="class_head_image_path"></a></div>
+        <div class="head_message">{{courseName}}</div>
+    </div>
+    <div id="head">
+        <img class="head_background" src="../images/classone/headbackground.jpg">
+    </div>
+
+    <div class="mynav">
+        <nav >
+            <ul  class="nav navbar-nav">
+                <li><a href="javascript:void(0);" v-on:click="setFountion(1)">课堂公告<span>{{class_notic.length}}</span></a></li>
+                <li><a href="javascript:void(0);" v-on:click="setFountion(2)">学生提问<span>{{class_problem.length}}</span></a></li>
+                <li><a href="javascript:void(0);" v-on:click="setFountion(3)">教学资源<span>{{class_file.length}}</span></a></li>
+                <li><a href="javascript:void(0);" v-on:click="setFountion(4)">课堂照片<span>{{class_image_list.length}}</span></a></li>
+                <li><a href="javascript:void(0);" v-on:click="setFountion(5)">统计分析<span>{{class_student.length}}</span></a> </li>
+                <li><a href="javascript:void(0);" v-on:click="setFountion(6)"><span>开始上课</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <div v-if="now_fountion==1">
+            <div class="main_box">
+                <div class="class_notic_submit_box">
+                    <form id="notic_form" role="form">
+                        <div class="form-group">
+                            <label for="topic">标题：</label>
+                            <input type="text" name="title" class="form-control" id="topic"placeholder="请输入名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">内容：</label>
+                            <textarea class="form-control" name="content" id="content" rows="2"></textarea>
+                        </div>
+                        <div class="class_notic_submit">
+                            <input class="class_notic_submit_btn" v-on:click="addNotic()" type="button" value="发布新公告">
+                        </div>
+                    </form>
+                </div>
+                <div class="class_notic_box" v-for="item in class_notic">
+                    <div class="class_notic_box_head">
+                        <h4>{{item.topic}}</h4>
+                        <p>{{item.content}}</p>
+                    </div>
+                    <div class="class_notic_box_foot">
+                        <p>发表于：{{item.time}}</p>
+                        <a href="javascript:void(0);" style="color:#797979; font-size: 12px">删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="now_fountion==2">
+            <div class="main_box" v-for="item in class_problem">
+                <div>
+                    <div  class="panel panel-default class_problem_box">
+                        <a href="javascript:void(0);" v-on:click="showReply(item)">
+                            <div>
+                                <h4 class="class_problem_box_head">
+                                    {{item.topic}}
+                                </h4>
+                                <div class="panel-body">
+                                    {{item.content}}
+                                </div>
+                                <div v-if="item.reply!='1'" class="reply">
+                                    {{item.reply}}
+                                </div>
+                            </div>
+
+                        </a>
+                        <div v-show="item.reply_show" class="class_problem_box_foot">
+                            <textarea id="comment" placeholder="想要说些什么呢" class="form-control" ></textarea>
+                            <div  class="class_problem_box_foot_submit" >
+                                <button v-on:click="reply" >回复</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div  class="panel panel-default class_problem_box">
+                        <a href="javascript:void(0);" v-on:click="showReply(item)">
+                            <div>
+                                <h4 class="class_problem_box_head">
+                                    幂函数问题
+                                </h4>
+                                <div class="panel-body">
+                                    求幂级数n！x^n的收敛半径（n从0到无穷）
+                                </div>
+                            </div>
+
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="now_fountion==3">
+            <div class="main_box">
+                <div class="class_file_submit_box">
+                    <form role="form">
+                        <div>
+                            <div class="form-group">
+                                <label for="inputfile">上传课件</label>
+                                <input type="file" id="inputfile" value="上传文件">
+                                <p class="help-block">点击可上传课堂资源</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="class_file_box" v-for="item in class_file">
+                    <div class="class_file_box_head">
+                        <p>{{item.name}}</p>
+                        <a href="#"><img src="../images/classone/download.png"></a>
+                    </div>
+                    <div class="class_file_box_foot">
+                        <p>上传时间：{{item.time}}</p>
+                        <p>下载次数：{{item.frequency}}</p>
+                        <p>大小：{{item.size}}MB</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div v-if="now_fountion==4">
+            <div class="main_box">
+                <div class="hello">
+                    <div class="upload">
+                        <div class="upload_warp">
+                            <div class="upload_warp_left" @click="fileClick">
+                                <img src="../images/classone/upload.png">
+                            </div>
+                            <div class="upload_warp_right" @drop="drop($event)" @dragenter="dragenter($event)" @dragover="dragover($event)">
+                                或者将文件拖到此处
+                            </div>
+                        </div>
+                        <div class="upload_warp_text">
+                            选中{{class_image_list.length}}张文件，共{{bytesToSize(this.size)}}
+                        </div>
+                        <input @change="fileChange($event)" type="file" id="upload_file" multiple style="display: none"/>
+                        <div class="upload_warp_img" v-show="class_image_list.length!=0">
+                            <div class="upload_warp_img_div" v-for="(item,index) of class_image_list">
+                                <div class="upload_warp_img_div_top">
+                                    <div class="upload_warp_img_div_text">
+                                        {{item.file.name}}
+                                    </div>
+                                    <img src="../images/classone/del.png" class="upload_warp_img_div_del" @click="fileDel(index)">
+                                </div>
+                                <img :src="item.file.src">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="now_fountion==5">
+            <div class="main_box">
+                <div>
+                    <table class="table text-center table-striped table-bordered table-hover">
+                        <thead class="table-thead">
+                        <tr>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>学号</th>
+                            <th>回答问题次数</th>
+                            <th>在线时间</th>
+                            <th>小黑板数量</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="item in class_student">
+                            <td>{{$index+1}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.school_number}}</td>
+                            <td>{{item.answer}}</td>
+                            <td>{{item.online_time}}</td>
+                            <td>{{item.blackboard_number}}</td>
+                            <td>
+                                <button v-on:click="add-background">增加小黑板</button>
+                                <button>减少小黑板</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div v-if="now_fountion==6">
+            <div class="main_box">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../js/vue.js" type="text/javascript"></script>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.js" type="text/javascript"></script>
+<script src="../js/classone.js" type="text/javascript"></script>
+</body>
+</html>

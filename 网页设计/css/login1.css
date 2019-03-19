@@ -1,0 +1,37 @@
+body{
+    background-image:url("../images/login_background.jpg");
+}
+#bicode_box{
+    margin:0 auto;
+    position: relative; /*设置position属性*/
+    top: 65px; /*偏移*/
+
+    width: 500px;
+    height:450px;
+    text-align: center;
+    /*transform: translateY(-50%);*/
+}
+#topic{
+    margin:0 auto;
+    position: relative; /*设置position属性*/
+    text-align: center;
+}
+#bicode_box_bottom{
+    background-color: white;
+    width: 450px;
+    height:340px;
+    border-radius:10px;
+}
+
+.bicode{
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+}
+.prompt_message{
+    margin-top:8px;
+}
+.topic_message{
+    color:white;
+    text-shadow:grey;
+}

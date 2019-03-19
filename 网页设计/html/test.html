@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="test">
+        <input type="button" id="submit">
+    </form>
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script>
+//    $("#submit").click(function () {
+//        $.post("http://10.243.1.30/AndroidUserServlet?method=login", {"suggest":"123"},function(result){
+//            $("span").html(result);
+//        });
+//    });
+$("#submit").click(function () {
+    JSONObject jsonObject = new JSONObject();  //创建Json对象
+    jsonObject.put("username", "张三");         //设置Json对象的属性
+    jsonObject.put("password", "123456");
+    $.ajax({
+        type: "post",
+        url:  "http://10.243.1.30/AndroidUserServlet?method=login",
+        contentType: "application/json",
+        data:"{'name':'zhangsan','age':'15'}",
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(msg) {
+            console.log(msg)
+        }
+    })
+})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body{
+    background-size:100% 100%;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    padding: 0px;
+}
+.centern
+{
+    margin: 0 auto;
+}
+.nowrap{
+    display: inline;
+}

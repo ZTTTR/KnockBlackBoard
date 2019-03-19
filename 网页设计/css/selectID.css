@@ -1,0 +1,20 @@
+body{
+    background-image:url("../images/select_identity/select_background.png");
+}
+#select_identify{
+    margin:0 auto;
+    margin-top:100px;
+    text-align: center;
+}
+.select{
+    display: inline;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+.select_message{
+    color: white;
+}
