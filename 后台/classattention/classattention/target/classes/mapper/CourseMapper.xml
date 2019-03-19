@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.watchingy.dao.CourseDao">
+
+    <insert id="add" parameterType="com.watchingy.model.Course">
+        INSERT INTO course(uid,course_name,create_time,people_number) VALUE(#{uid},#{courseName},#{createTime},#{peopleNumber})
+    </insert>
+    
+    <select id="getByUid" resultType="com.watchingy.model.Course">
+        SELECT * FROM course WHERE uid=#{uid}
+    </select>
+
+    <delete id="delete" parameterType="com.watchingy.model.Course">
+        DELETE FROM course WHERE course_id=#{courseId}
+    </delete>
+</mapper>

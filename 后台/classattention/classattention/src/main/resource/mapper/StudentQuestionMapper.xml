@@ -1,0 +1,15 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.watchingy.dao.StudentQuestionDao">
+
+   <insert id="add" parameterType="com.watchingy.model.StudentQuestion">
+       INSERT INTO student_question(title,content,reply,publicOrNot,classId) VALUE (#{title},#{content},#{reply},#{publicOrNot},#{classId})
+   </insert>
+
+    <select id="getByUid" parameterType="com.watchingy.model.StudentQuestion">
+        SELECT * FROM student_question WHERE classId=#{classId}
+    </select>
+
+
+</mapper>
