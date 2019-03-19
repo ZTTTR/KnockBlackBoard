@@ -34,4 +34,14 @@ public class StudentQuestionController {
         int classId = Integer.parseInt(requestJson);
         return JSON.toJSONString(studentQuestionService.getStudentQuestion(classId));
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/delete")
+    public String deleteStudentQuestion(@RequestBody String requestJson){
+        int questionId = Integer.parseInt(requestJson);
+        studentQuestionService.deleteStudentQuestion(questionId);
+        return"successful";
+    }
+
+
 }

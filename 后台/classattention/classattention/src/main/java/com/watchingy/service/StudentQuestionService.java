@@ -20,4 +20,8 @@ public class StudentQuestionService {
     public List<StudentQuestion> getStudentQuestion(int classId) {
         return studentQuestionDao.getByUid(classId);
     }
+
+    public void deleteStudentQuestion(int questionId){
+        studentQuestionDao.delete(questionId);
+    }
 }

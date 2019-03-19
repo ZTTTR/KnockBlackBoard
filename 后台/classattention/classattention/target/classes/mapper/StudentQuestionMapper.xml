@@ -4,12 +4,15 @@
 <mapper namespace="com.watchingy.dao.StudentQuestionDao">
 
    <insert id="add" parameterType="com.watchingy.model.StudentQuestion">
-       INSERT INTO student_question(title,content,reply,publicOrNot,classId) VALUE (#{title},#{content},#{reply},#{publicOrNot},#{classId})
+       INSERT INTO student_question(title,content,reply,is_public,classId) VALUE (#{title},#{content},#{reply},#{is_public},#{classId})
    </insert>
 
     <select id="getByUid" parameterType="com.watchingy.model.StudentQuestion">
         SELECT * FROM student_question WHERE classId=#{classId}
     </select>
 
+    <delete id="delete" parameterType="com.watchingy.model.StudentQuestion">
+        DELETE FROM student_question WHERE question_id=#{qId}
+    </delete>
 
 </mapper>
