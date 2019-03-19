@@ -21,7 +21,7 @@ public class CourseNoteController {
     private CourseNoteService courseNoteService;
 
     @RequestMapping(value = "/create")
-    public String createCourseNote(String requestJson){
+    public String createCourseNote(@RequestBody String requestJson){
         if (requestJson == null) {
             return "error";
         }

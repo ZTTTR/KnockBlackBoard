@@ -6,6 +6,8 @@ import com.watchingy.model.CourseNote;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class CourseNoteService {
     private ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-db.xml");
     private CourseNoteDaoImpl courseNoteDao = (CourseNoteDaoImpl) context.getBean("courseNoteDao");
@@ -18,7 +20,7 @@ public class CourseNoteService {
     public void deleteCourseNote(int courseNoteId){
         courseNoteDao.delete(courseNoteId);
     }
-    public CourseNote getCourseNote(int courseId) {
+    public List<CourseNote> getCourseNote(int courseId) {
         return courseNoteDao.getByCourseId(courseId);
     }
 

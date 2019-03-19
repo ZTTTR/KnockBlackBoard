@@ -3,6 +3,8 @@ package com.watchingy.dao;
 import com.watchingy.model.CourseNote;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 public class CourseNoteDaoImpl implements CourseNoteDao {
     SqlSession sqlSession;
     public void setSqlSession(SqlSession sqlSession){
@@ -19,8 +21,8 @@ public class CourseNoteDaoImpl implements CourseNoteDao {
         sqlSession.delete("com.watchingy.dao.CourseDao.delete",courseNoteId);
     }
     @Override
-    public CourseNote getByCourseId(int courseId) {
-        return (CourseNote) sqlSession.selectOne("com.watchingy.dao.CourseNoteDao", courseId);
+    public List<CourseNote> getByCourseId(int courseId) {
+        return  sqlSession.selectOne("com.watchingy.dao.CourseNoteDao", courseId);
     }
 
 }
