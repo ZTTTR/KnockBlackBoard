@@ -21,4 +21,9 @@ public class StudentQuestionDaoImpl implements StudentQuestionDao{
     public List<StudentQuestion> getByUid(int classId) {
         return sqlSession.selectList("com.watchingy.dao.StudentQuestion.getByUid", classId);
     }
+
+    @Override
+    public void delete(int questionId){
+        sqlSession.delete("com.watchingy.dao.StudentQuestion.detele",questionId);
+    }
 }

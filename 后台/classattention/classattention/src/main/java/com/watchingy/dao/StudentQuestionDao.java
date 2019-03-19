@@ -7,4 +7,5 @@ import java.util.List;
 public interface StudentQuestionDao {
     void add(StudentQuestion studentQuestion);
     List<StudentQuestion> getByUid(int classId);
+    void delete(int questionId);
 }
