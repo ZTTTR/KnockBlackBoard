@@ -26,7 +26,14 @@ public class CourseNoteController {
             return "error";
         }
         try {
+
             CourseNote courseNote = JSON.parseObject(requestJson, CourseNote.class);
+            //将中文课程名转为utf-8编码
+            String title=courseNote.getTitle();
+            String content=courseNote.getContent();
+            courseNote.setTitle( new String(title.getBytes("ISO8859-1"), "utf-8"));
+            courseNote.setContent( new String(content.getBytes("ISO8859-1"), "utf-8"));
+
             courseNoteService.createCourseNote(courseNote);
             return "success";
         } catch (Exception e){
@@ -35,7 +42,7 @@ public class CourseNoteController {
         }
     }
 
-    @RequestMapping(value = "/getInfo")
+    @RequestMapping(value = "/getInfo" ,produces = "application/json;charset=UTF-8")
     public String getCourseNote(@RequestBody String request){
         try {
             CourseNote courseNote= JSON.parseObject(request, CourseNote.class);
@@ -47,5 +54,12 @@ public class CourseNoteController {
             return "error";
         }
     }
-    
+    @RequestMapping(value = "/delete")
+    public String delete(@RequestBody String json){
+        CourseNote courseNote= JSON.parseObject(json, CourseNote.class);
+        int courseNoteID=courseNote.getCourseNoteId();
+//        String uid=course.getUid();
+        courseNoteService.deleteCourseNote(courseNoteID);
+        return "ok";
+    }
 }

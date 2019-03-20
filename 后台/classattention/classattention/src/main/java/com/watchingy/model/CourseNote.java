@@ -3,18 +3,21 @@ package com.watchingy.model;
 public class CourseNote {
 
 
-    private int CourseNoteId;
+    private int courseNoteId;
     private int courseId;
     private String title;
     private String content;
-    private int time;
+
+
+
+    private String createTime;
 
     public int getCourseNoteId() {
-        return CourseNoteId;
+        return courseNoteId;
     }
 
     public void setCourseNoteId(int courseNoteId) {
-        CourseNoteId = courseNoteId;
+        this.courseNoteId = courseNoteId;
     }
     public int getCourseId() {
         return courseId;
@@ -40,22 +43,21 @@ public class CourseNote {
         this.content = content;
     }
 
-    public int getTime() {
-        return time;
+    public String getTime() {
+        return createTime;
     }
-
-    public void setTime(int time) {
-        this.time = time;
+    public void setTime(String time) {
+        this.createTime = time;
     }
 
     @Override
     public String toString() {
         return "CourseNote{" +
-                "CourseNoteId=" + CourseNoteId +
+                "courseNoteId=" + courseNoteId +
                 ", courseId=" + courseId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", time=" + time +
+                ", createTime=" + createTime +
                 '}';
     }
 }

@@ -13,16 +13,16 @@ public class CourseNoteDaoImpl implements CourseNoteDao {
 
     @Override
     public void add(CourseNote courseNote) {
-        sqlSession.insert("com.watchingy.dao.CourseNoteDao", courseNote);
+        sqlSession.insert("com.watchingy.dao.CourseNoteDao.add", courseNote);
 //        sqlSession.commit();
     }
     @Override
     public void delete(int courseNoteId){
-        sqlSession.delete("com.watchingy.dao.CourseDao.delete",courseNoteId);
+        sqlSession.delete("com.watchingy.dao.CourseNoteDao.delete",courseNoteId);
     }
     @Override
     public List<CourseNote> getByCourseId(int courseId) {
-        return  sqlSession.selectOne("com.watchingy.dao.CourseNoteDao", courseId);
+        return  sqlSession.selectList("com.watchingy.dao.CourseNoteDao.getByCourseId", courseId);
     }
 
 }
