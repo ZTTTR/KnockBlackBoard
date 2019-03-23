@@ -1,6 +1,5 @@
 package com.watchingy.service;
 
-import com.watchingy.dao.StudentQuestionDao;
 import com.watchingy.dao.StudentQuestionDaoImpl;
 import com.watchingy.model.StudentQuestion;
 import org.springframework.context.ApplicationContext;
@@ -17,11 +16,18 @@ public class StudentQuestionService {
         studentQuestionDao.add(studentQuestion);
     }
 
-    public List<StudentQuestion> getStudentQuestion(int classId) {
-        return studentQuestionDao.getByUid(classId);
+    public List<StudentQuestion> getStudentQuestionByUid(String uid) {
+        return studentQuestionDao.getByUid(uid);
     }
 
+    public List<StudentQuestion> getStudentQuestionByCourseId(int courseId){
+        return studentQuestionDao.getByCourseId(courseId);
+    }
     public void deleteStudentQuestion(int questionId){
         studentQuestionDao.delete(questionId);
+    }
+
+    public void  addReply(StudentQuestion studentQuestion){
+        studentQuestionDao.addReply(studentQuestion.getQuestionId(),studentQuestion.getReply());
     }
 }

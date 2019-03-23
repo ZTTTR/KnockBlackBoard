@@ -3,16 +3,41 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.watchingy.dao.StudentQuestionDao">
 
-   <insert id="add" parameterType="com.watchingy.model.StudentQuestion">
+    <select id="getByUid" resultType="com.watchingy.model.StudentQuestion">
+        SELECT * FROM student_question WHERE uid=#{uid}
+    </select>
+
+    <select id="getByCourseId" resultType="com.watchingy.model.StudentQuestion">
+        SELECT  * FROM  student_question WHERE course_id=#{courseId}
+    </select>
+
+    <insert id="add" parameterType="com.watchingy.model.StudentQuestion">
        INSERT INTO student_question(title,content,reply,is_public,classId) VALUE (#{title},#{content},#{reply},#{is_public},#{classId})
    </insert>
 
-    <select id="getByUid" parameterType="com.watchingy.model.StudentQuestion">
-        SELECT * FROM student_question WHERE classId=#{classId}
-    </select>
-
     <delete id="delete" parameterType="com.watchingy.model.StudentQuestion">
-        DELETE FROM student_question WHERE question_id=#{qId}
+        DELETE FROM student_question WHERE question_id=#{questionId}
     </delete>
+
+
+    <update id="updateTitle" parameterType="java.util.HashMap" >
+        UPDATE student_question SET title=#{title} WHERE question_id=#{questionId}
+    </update>
+
+    <update id="updateContent" parameterType="java.util.HashMap">
+        UPDATE student_question SET content=#{content} WHERE question_id=#{questionId}
+    </update>
+
+    <update id="updateReply" parameterType="java.util.HashMap">
+        UPDATE student_question SET reply=#{reply} WHERE question_id=#{questionId}
+    </update>
+
+    <update id="updateIsPublic" parameterType="java.util.HashMap">
+        UPDATE student_question SET is_public=#{isPublic} WHERE question_id=#{questionId}
+    </update>
+
+    <update id="updateIsReply" parameterType="java.util.HashMap">
+        UPDATE student_question SET is_reply=#{isReply} WHERE question_id=#{questionId}
+    </update>
 
 </mapper>

@@ -5,7 +5,7 @@
     <select id="findByUsername" resultType="com.watchingy.model.UserInfo">
         SELECT * FROM user_info WHERE username=#{username}
     </select>
-    
+
     <select id="findUidByUsername" resultType="String">
         SELECT uid FROM user_info WHERE username=#{username}
     </select>
@@ -56,11 +56,11 @@
                     value(#{uid},#{username},#{password},#{email},#{code},#{state},#{phone},#{uclassNumber},#{trueName},#{schoolId},#{havingClass})
                      on duplicate key update password=VALUES(password),email=VALUES(email),phone=VALUES(phone)
     </insert>
-
+    <!--验证密码-->
     <select id="checkPassword" parameterType="java.util.HashMap" resultType="com.watchingy.model.UserInfo">
         SELECT * FROM user_info WHERE username=#{username} AND password=#{password}
     </select>
-
+    <!--通过名字获取uid-->
     <select id="getUid" parameterType="String" resultType="String">
         select uid from user_info where username=#{username}
     </select>

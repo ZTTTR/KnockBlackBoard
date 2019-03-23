@@ -2,8 +2,9 @@ package com.watchingy.model;
 
 public class StudentQuestion {
 
-    private int qId;
-    private int course_id;
+    private int questionId;
+
+    private int courseId;
     private int uid;
     private String title;
     private String content;
@@ -14,20 +15,21 @@ public class StudentQuestion {
     private String create_time;
 
 
-    public int getqId() {
-        return qId;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    public void setqId(int qId) {
-        this.qId = qId;
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
-    public int getCourse_id() {
-        return course_id;
+
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setCourse_id(int course_id) {
-        this.course_id = course_id;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
     public int getUid() {
@@ -97,8 +99,8 @@ public class StudentQuestion {
     @Override
     public String toString() {
         return "StudentQuestion{" +
-                "qId=" + qId +
-                ", course_id=" + course_id +
+                "questionId=" + questionId +
+                ", courseId=" + courseId +
                 ", uid=" + uid +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

@@ -20,13 +20,12 @@ public class CourseNoteController {
     @Autowired
     private CourseNoteService courseNoteService;
 
-    @RequestMapping(value = "/create")
+    @RequestMapping(value = "/create" )
     public String createCourseNote(@RequestBody String requestJson){
         if (requestJson == null) {
             return "error";
         }
         try {
-
             CourseNote courseNote = JSON.parseObject(requestJson, CourseNote.class);
             //将中文课程名转为utf-8编码
             String title=courseNote.getTitle();
