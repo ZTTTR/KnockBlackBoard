@@ -13,7 +13,7 @@
     </select>
 
     <insert id="add" parameterType="com.watchingy.model.Class">
-        INSERT INTO class(uid,createTime,classOrder,courseId) VALUE (#{uid},#{createTime},#{classOrder},#{courseId})
+        INSERT INTO class(uid,create_time,class_order,course_id) VALUE (#{uid},#{createTime},#{classOrder},#{courseId})
     </insert>
 
     <!--返回数值需+1-->
