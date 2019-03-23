@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="classattention:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="classattention.war">
-      <element id="artifact" artifact-name="classattention:war exploded" />
-    </root>
-  </artifact>
-</component>
